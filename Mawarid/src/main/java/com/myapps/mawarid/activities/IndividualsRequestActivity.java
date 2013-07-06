@@ -1,4 +1,4 @@
-package com.myapps.mawarid;
+package com.myapps.mawarid.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.myapps.mawarid.R;
 import com.myapps.mawarid.util.FontsUtil;
 
 /**

@@ -16,7 +16,7 @@ public class FontsUtil {
 
     public static void adjustFont(TextView textView) {
         if (textView != null) {
-            textView.setTypeface(Farsi.GetFarsiFont(App.getContext()));
+            textView.setTypeface(Farsi.GetFarsiFont(App.get()));
             if (textView.getText() != null) {
                 textView.setText(Farsi.Convert(String.valueOf(textView.getText())));
             }

@@ -1,7 +1,9 @@
-package com.myapps.mawarid;
+package com.myapps.mawarid.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.myapps.mawarid.R;
 
 /**
  * Created by mhewedy on 7/6/13.
