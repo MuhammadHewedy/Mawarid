@@ -18,6 +18,7 @@ public class FontsUtil {
         if (textView != null){
             textView.setTypeface(Farsi.GetFarsiFont(App.getContext()));
             textView.setText(Farsi.Convert(textView.getText().toString()));
+            textView.setHint(Farsi.Convert(textView.getHint().toString()));
         }else {
             Log.e(TAG, "TextView is null");
         }
