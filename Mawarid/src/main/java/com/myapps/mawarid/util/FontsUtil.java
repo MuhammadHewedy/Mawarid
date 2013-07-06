@@ -15,15 +15,18 @@ public class FontsUtil {
     private static final String TAG = "FontsUtil";
 
     public static void adjustFont(TextView textView) {
-        if (textView != null){
+        if (textView != null) {
             textView.setTypeface(Farsi.GetFarsiFont(App.getContext()));
-            textView.setText(Farsi.Convert(textView.getText().toString()));
-            textView.setHint(Farsi.Convert(textView.getHint().toString()));
-        }else {
+            if (textView.getText() != null) {
+                textView.setText(Farsi.Convert(String.valueOf(textView.getText())));
+            }
+            if (textView.getHint() != null) {
+                textView.setHint(Farsi.Convert(String.valueOf(textView.getHint())));
+            }
+        } else {
             Log.e(TAG, "TextView is null");
         }
     }
-
 
     /*
     * source: http://stackoverflow.com/questions/7962704
@@ -50,7 +53,6 @@ public class FontsUtil {
         private final static String szLaStickWoosim = Character
                 .toString((char) 0xd9); // La
         private static final int N_DISTINCT_CHARACTERS = 43;
-
         // (Sticky!!!)
         public static boolean isFarsiConversionNeeded = true;
         static struc[] arrStruc = {
