@@ -1,4 +1,4 @@
-package com.myapps.mawarid.apapters;
+package com.myapps.mawarid.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

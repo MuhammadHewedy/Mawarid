@@ -34,4 +34,9 @@ public class ServerApi {
                                                 Response.ErrorListener errorListener) {
         return mRequestQueue.add(new AgentNationalityLookupRequest(listener, errorListener));
     }
+
+    public Request<?> getCityLookup(Response.Listener<List<Lookup>> listener,
+                              Response.ErrorListener errorListener) {
+        return mRequestQueue.add(new CityRequest(listener, errorListener));
+    }
 }

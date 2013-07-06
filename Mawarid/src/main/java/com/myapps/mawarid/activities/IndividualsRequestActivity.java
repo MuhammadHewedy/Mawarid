@@ -8,8 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.myapps.mawarid.R;
-import com.myapps.mawarid.apapters.AbstractArrayAdapter;
-import com.myapps.mawarid.apapters.AgentNationalityAdapter;
+import com.myapps.mawarid.adapters.AbstractArrayAdapter;
+import com.myapps.mawarid.adapters.AgentNationalityAdapter;
+import com.myapps.mawarid.adapters.CityAdapter;
 import com.myapps.mawarid.model.Lookup;
 import com.myapps.mawarid.util.FontsUtil;
 
@@ -18,14 +19,15 @@ import com.myapps.mawarid.util.FontsUtil;
  */
 public class IndividualsRequestActivity extends Activity {
 
-    Spinner mAgentNationSpinner;
+    private Spinner mAgentNationSpinner;
+    private Spinner mCitySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individuals_request);
 
-        adjustTextView(new int[]{
+        adjustTextViewFont(new int[]{
                 R.id.birth_date_text_view,
                 R.id.district_text_view,
                 R.id.email_text_view,
@@ -49,6 +51,9 @@ public class IndividualsRequestActivity extends Activity {
         mAgentNationSpinner = (Spinner) findViewById(R.id.agent_nationality_spinner);
         fillSpinner(mAgentNationSpinner, new AgentNationalityAdapter(this,
                 android.R.layout.simple_spinner_item));
+
+        mCitySpinner = (Spinner) findViewById(R.id.city_spinner);
+        fillSpinner(mCitySpinner, new CityAdapter(this, android.R.layout.simple_spinner_item));
     }
 
     private void fillSpinner(Spinner spinner, AbstractArrayAdapter abstractArrayAdapter) {
@@ -57,7 +62,7 @@ public class IndividualsRequestActivity extends Activity {
         abstractArrayAdapter.query();
     }
 
-    private void adjustTextView(int[] textViewIds) {
+    private void adjustTextViewFont(int[] textViewIds) {
         for (Integer textViewId : textViewIds) {
             FontsUtil.adjustFont((TextView) findViewById(textViewId));
         }

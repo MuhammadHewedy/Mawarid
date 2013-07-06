@@ -2,22 +2,16 @@ package com.myapps.mawarid.api;
 
 import com.android.volley.Response;
 import com.myapps.mawarid.model.Lookup;
-import com.myapps.mawarid.util.Logger;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by mhewedy on 7/6/13.
  */
-public class AgentNationalityLookupRequest extends AbstractRequest<List<Lookup>> {
+public class AgentNationalityLookupRequest extends LookupRequest {
 
-    private static final String urlParams = "APILookUp" +
-            ".ashx?tableName=country&" +
+    private static final String urlParams = "APILookUp.ashx?" +
+            "tableName=country&" +
             "valueColumn=code&" +
             "displayColumnAR=Country&" +
             "displayColumnEN=Country_EN&" +
@@ -30,20 +24,17 @@ public class AgentNationalityLookupRequest extends AbstractRequest<List<Lookup>>
     }
 
     @Override
-    public List<Lookup> getObjectFromJson(String json) {
-        List<Lookup> lookups = new ArrayList<Lookup>();
-        try {
-            JSONArray jsonArray = new JSONArray(json);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                if (jsonObject != null) {
-                    lookups.add(new Lookup(jsonObject.getInt("code"), jsonObject.getString("Country"),
-                            jsonObject.getString("Country_EN")));
-                }
-            }
-        } catch (JSONException e) {
-            Logger.e(null, e, e.getMessage());
-        }
-        return lookups;
+    protected String getEnValueField() {
+        return "Country_EN";
+    }
+
+    @Override
+    protected String getValueField() {
+        return "Country";
+    }
+
+    @Override
+    protected String getCodeField() {
+        return "code";
     }
 }
