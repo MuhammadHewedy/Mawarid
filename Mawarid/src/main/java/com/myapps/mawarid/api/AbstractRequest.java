@@ -14,14 +14,12 @@ import java.io.UnsupportedEncodingException;
  */
 public abstract class AbstractRequest<T> extends Request<T> {
 
-    private final String mFunction;
     private final Response.Listener<T> mListener;
 
-    public AbstractRequest(String function, String urlParams, Response.Listener<T> listener,
+    public AbstractRequest(String urlParams, Response.Listener<T> listener,
                            Response.ErrorListener errorListener) {
         super(Method.GET, App.get().getString(R.string.service_base_url) + urlParams,
                 errorListener);
-        this.mFunction = function;
         this.mListener = listener;
     }
 
