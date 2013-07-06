@@ -2,8 +2,6 @@ package com.myapps.mawarid.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -72,15 +70,5 @@ public class IndividualsRequestActivity extends Activity {
         Toast.makeText(this, "todo: Send request to server: " + selectedItem.getValue(),
                 Toast.LENGTH_SHORT).show();
         finish();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
