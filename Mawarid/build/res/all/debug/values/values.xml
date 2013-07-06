@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <string name="app_name">موارد</string>
+    <string name="birth_date_text">تاريخ الميلاد</string>
+    <string name="district_text">الحي السكني</string>
+    <string name="email_text">البريد الإلكتروني</string>
+    <string name="family_name_text">اسم العائلة</string>
+    <string name="father_name_text">اسم الأب</string>
+    <string name="first_name_text">الاسم الاول</string>
+    <string name="g_father_text">اسم الجد</string>
+    <string name="id_text">رقم الهوية</string>
+    <string name="job_text">المهنة</string>
+    <string name="mobile_phone_text">الهاتف الجوال</string>
+    <string name="other_phone_text">هاتف آخر</string>
+    <string name="permanent_phone_text">هاتف ثابت</string>
+    <string name="request_companies_text">تقديم طلب شركات</string>
+    <string name="request_follow_up_text">متابعة الطلبات</string>
+    <string name="request_individuals_text">تقديم طلب أفراد</string>
+    <string name="send_request_text">تسجيل الطلب</string>
+    <string name="title_company_activity_text">تقديم طلب شركات</string>
+    <string name="title_individual_activity_text">تقديم طلب أفراد</string>
+    <string name="work_text">جهة العمل</string>
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+</resources>

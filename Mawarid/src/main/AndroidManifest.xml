@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.myapps.mawarid"
+          android:versionCode="1"
+          android:versionName="1.0">
+
+    <uses-sdk
+            android:minSdkVersion="7"
+            android:targetSdkVersion="17"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            android:name=".App">
+        <activity
+                android:name=".MainActivity"
+                android:label="@string/app_name"
+                android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".IndividualsRequestActivity"
+                android:parentActivityName="MainActivity"
+                android:label="@string/title_individual_activity_text">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.myapps.mawarid.MainActivity"/>
+        </activity>
+
+        <activity
+                android:name=".CompanyRequestActivity"
+                android:parentActivityName="MainActivity"
+                android:label="@string/title_company_activity_text">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.myapps.mawarid.MainActivity"/>
+        </activity>
+    </application>
+
+</manifest>
