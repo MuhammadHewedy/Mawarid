@@ -29,20 +29,20 @@
 
         <activity
                 android:name=".activities.IndividualsRequestActivity"
-                android:parentActivityName="MainActivity"
+                android:parentActivityName="com.myapps.mawarid.activities.MainActivity"
                 android:label="@string/title_individual_activity_text">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.myapps.mawarid.MainActivity"/>
+                    android:value="com.myapps.mawarid.activities.MainActivity"/>
         </activity>
 
         <activity
                 android:name=".activities.CompanyRequestActivity"
-                android:parentActivityName="MainActivity"
+                android:parentActivityName="com.myapps.mawarid.activities.MainActivity"
                 android:label="@string/title_company_activity_text">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.myapps.mawarid.MainActivity"/>
+                    android:value="com.myapps.mawarid.activities.MainActivity"/>
         </activity>
     </application>
 
