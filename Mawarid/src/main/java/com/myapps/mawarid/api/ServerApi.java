@@ -2,10 +2,6 @@ package com.myapps.mawarid.api;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.myapps.mawarid.model.Lookup;
-
-import java.util.List;
 
 /**
  * Created by mohammad_abdullah on 6/26/13.
@@ -30,13 +26,7 @@ public class ServerApi {
         return new int[]{from, to};
     }
 
-    public Request<?> getAgentNationalityLookup(Response.Listener<List<Lookup>> listener,
-                                                Response.ErrorListener errorListener) {
-        return mRequestQueue.add(new AgentNationalityLookupRequest(listener, errorListener));
-    }
-
-    public Request<?> getCityLookup(Response.Listener<List<Lookup>> listener,
-                              Response.ErrorListener errorListener) {
-        return mRequestQueue.add(new CityRequest(listener, errorListener));
+    public Request<?> addToQueue(Request request){
+        return mRequestQueue.add(request);
     }
 }

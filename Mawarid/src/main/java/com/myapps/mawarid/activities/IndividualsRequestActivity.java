@@ -8,9 +8,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.myapps.mawarid.R;
-import com.myapps.mawarid.adapters.AbstractArrayAdapter;
-import com.myapps.mawarid.adapters.AgentNationalityAdapter;
-import com.myapps.mawarid.adapters.CityAdapter;
+import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
+import com.myapps.mawarid.api.AgentNatLookupRequest;
+import com.myapps.mawarid.api.CityRequest;
+import com.myapps.mawarid.api.LookupRequest;
+import com.myapps.mawarid.api.SectorRequest;
 import com.myapps.mawarid.model.Lookup;
 import com.myapps.mawarid.util.FontsUtil;
 
@@ -19,8 +21,9 @@ import com.myapps.mawarid.util.FontsUtil;
  */
 public class IndividualsRequestActivity extends Activity {
 
-    private Spinner mAgentNationSpinner;
+    private Spinner mAgentNatSpinner;
     private Spinner mCitySpinner;
+    private Spinner mSectorSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +51,30 @@ public class IndividualsRequestActivity extends Activity {
     }
 
     private void setupSpinners() {
-        mAgentNationSpinner = (Spinner) findViewById(R.id.agent_nationality_spinner);
-        fillSpinner(mAgentNationSpinner, new AgentNationalityAdapter(this,
-                android.R.layout.simple_spinner_item));
+
+        LookupSpinnerAdapter spinnerAdapter;
+
+        mAgentNatSpinner = (Spinner) findViewById(R.id.agent_nationality_spinner);
+        spinnerAdapter = LookupSpinnerAdapter.newInstance(this);
+        fillSpinner(mAgentNatSpinner, spinnerAdapter, new AgentNatLookupRequest(spinnerAdapter,
+                spinnerAdapter));
 
         mCitySpinner = (Spinner) findViewById(R.id.city_spinner);
-        fillSpinner(mCitySpinner, new CityAdapter(this, android.R.layout.simple_spinner_item));
+        spinnerAdapter = LookupSpinnerAdapter.newInstance(this);
+        fillSpinner(mCitySpinner, spinnerAdapter, new CityRequest(spinnerAdapter, spinnerAdapter));
+
+        mSectorSpinner = (Spinner) findViewById(R.id.sector_spinner);
+        spinnerAdapter = LookupSpinnerAdapter.newInstance(this);
+        fillSpinner(mSectorSpinner, spinnerAdapter, new SectorRequest(spinnerAdapter,
+                spinnerAdapter));
     }
 
-    private void fillSpinner(Spinner spinner, AbstractArrayAdapter abstractArrayAdapter) {
-        abstractArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(abstractArrayAdapter);
-        abstractArrayAdapter.query();
+    private void fillSpinner(Spinner spinner, LookupSpinnerAdapter spinnerAdapter,
+                             LookupRequest lookupRequest) {
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+        spinnerAdapter.setLookupRequest(lookupRequest);
+        spinnerAdapter.query();
     }
 
     private void adjustTextViewFont(int[] textViewIds) {
@@ -70,7 +85,7 @@ public class IndividualsRequestActivity extends Activity {
 
     public void registerRequestClicked(View view) {
 
-        Lookup selectedItem = (Lookup) mAgentNationSpinner.getSelectedItem();
+        Lookup selectedItem = (Lookup) mAgentNatSpinner.getSelectedItem();
 
         Toast.makeText(this, "todo: Send request to server: " + selectedItem.getValue(),
                 Toast.LENGTH_SHORT).show();

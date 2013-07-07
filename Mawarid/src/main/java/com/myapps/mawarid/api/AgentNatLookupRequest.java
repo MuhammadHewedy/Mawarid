@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by mhewedy on 7/6/13.
  */
-public class AgentNationalityLookupRequest extends LookupRequest {
+public class AgentNatLookupRequest extends LookupRequest {
 
     private static final String urlParams = "APILookUp.ashx?" +
             "tableName=country&" +
@@ -18,8 +18,8 @@ public class AgentNationalityLookupRequest extends LookupRequest {
             "condition=WHERE%20(Can_IsteqdamToIndv%20=%201)%20AND%20(Code%20>%200)%20ORDER%20BY%20Order_Number,%20Nationality&" +
             "Language=ar-SA";
 
-    public AgentNationalityLookupRequest(Response.Listener<List<Lookup>> listener,
-                                         Response.ErrorListener errorListener) {
+    public AgentNatLookupRequest(Response.Listener<List<Lookup>> listener,
+                                 Response.ErrorListener errorListener) {
         super(urlParams, listener, errorListener);
     }
 

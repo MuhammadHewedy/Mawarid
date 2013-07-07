@@ -2,7 +2,10 @@ package com.myapps.mawarid.adapters;
 
 import android.content.Context;
 
+import com.myapps.mawarid.App;
+import com.myapps.mawarid.api.LookupRequest;
 import com.myapps.mawarid.model.Lookup;
+import com.myapps.mawarid.util.Logger;
 
 import java.util.List;
 
@@ -11,8 +14,18 @@ import java.util.List;
  */
 public class LookupSpinnerAdapter extends AbstractArrayAdapter<List<Lookup>, Lookup> {
 
+    private LookupRequest mLookupRequest;
+
+    public static LookupSpinnerAdapter newInstance(Context context){
+        return new LookupSpinnerAdapter(context, android.R.layout.simple_spinner_item);
+    }
+
     public LookupSpinnerAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId, null);
+    }
+
+    public void setLookupRequest(LookupRequest lookupRequest){
+        this.mLookupRequest = lookupRequest;
     }
 
     @Override
@@ -20,5 +33,15 @@ public class LookupSpinnerAdapter extends AbstractArrayAdapter<List<Lookup>, Loo
         super.onResponse(response);
         mList.addAll(response);
         notifyDataSetChanged();
+    }
+
+    @Override
+    protected void loadNextPage() {
+        super.loadNextPage();
+        if (mLookupRequest != null) {
+            mInFlightRequest = App.get().getApi().addToQueue(mLookupRequest);
+        } else {
+            Logger.e(null, null, "mLookupRequest is null");
+        }
     }
 }
