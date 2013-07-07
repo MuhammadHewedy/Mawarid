@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Required;
 import com.myapps.mawarid.R;
 import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
 import com.myapps.mawarid.api.AgentNatLookupRequest;
@@ -18,6 +20,7 @@ import com.myapps.mawarid.api.LookupRequest;
 import com.myapps.mawarid.api.RequestJobRequest;
 import com.myapps.mawarid.api.RequestNatRequest;
 import com.myapps.mawarid.api.SectorRequest;
+import com.myapps.mawarid.util.BaseValidationListener;
 import com.myapps.mawarid.util.FontsUtil;
 
 /**
@@ -38,6 +41,7 @@ public class IndividualsRequestActivity extends Activity {
     private EditText mEmailEditText;
     private EditText mFamilyNameEditText;
     private EditText mFatherNameEditText;
+    @Required(order = 1, messageResId = R.string.cannot_be_empty)
     private EditText mFirstNameEditText;
     private EditText mGFatherEditText;
     private EditText mIdEditText;
@@ -51,6 +55,7 @@ public class IndividualsRequestActivity extends Activity {
     private Button mRegisterRequestButton;
     private EditText[] mAllEditTextRef;
     private Spinner[] mAllSpinnerRef;
+    private Validator mValidator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +67,15 @@ public class IndividualsRequestActivity extends Activity {
         mAllSpinnerRef = viewFinder.findSpinnersById();
         mRegisterRequestButton = (Button) findViewById(R.id.register_request_button);
 
-        adjustEditText();
+        mValidator = new Validator(this);
+        mValidator.setValidationListener(new BaseValidationListener() {
+            @Override
+            public void onSuccess() {
+                registerIndividualRequest();
+            }
+        });
 
+        adjustEditTextProperties();
         setupSpinners();
     }
 
@@ -108,10 +120,7 @@ public class IndividualsRequestActivity extends Activity {
         spinner.setAdapter(adapter);
     }
 
-    /**
-     * set font and add text change listener
-     */
-    private void adjustEditText() {
+    private void adjustEditTextProperties() {
         for (int i = 0; i < mAllEditTextRef.length; i++) {
             EditText editText = mAllEditTextRef[i];
             FontsUtil.adjustFont(editText);
@@ -120,8 +129,11 @@ public class IndividualsRequestActivity extends Activity {
     }
 
     public void registerRequestClicked(View view) {
-            Toast.makeText(this, "تم تسجيل طلبك بنجاح !", Toast.LENGTH_SHORT).show();
-            finish();
+        mValidator.validate();
+    }
+
+    private void registerIndividualRequest() {
+        Toast.makeText(this, "Register on Server succeed!", Toast.LENGTH_SHORT).show();
     }
 
     class ViewFinder {
