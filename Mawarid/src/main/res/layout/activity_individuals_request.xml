@@ -8,7 +8,8 @@
               android:paddingBottom="@dimen/activity_vertical_margin"
               tools:context=".MainActivity"
               android:orientation="vertical"
-              android:layoutDirection="rtl">
+              android:layoutDirection="rtl"
+              android:textDirection="rtl">
 
     <ScrollView
             android:layout_height="match_parent"
@@ -18,7 +19,8 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
-                android:layoutDirection="rtl">
+                android:layoutDirection="rtl"
+                android:textDirection="rtl">
 
             <EditText
                     android:layout_width="match_parent"
@@ -135,25 +137,50 @@
                     android:id="@+id/spinner"
                     android:layout_gravity="center"/>
 
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_line_separator"/>
+
             <!-- End section 2 -->
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/req_job_spinner"
+                    android:layout_gravity="center"/>
+
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/req_nat_spinner"
+                    android:layout_gravity="center"/>
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/number_text"
+                    android:id="@+id/job_text_view"/>
+
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_line_separator"/>
-
-
             <!-- End section 3 -->
-            <ImageView
+
+            <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line_separator"/>
+                    android:id="@+id/how_know_spinner"
+                    android:layout_gravity="center"/>
 
-
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/notes_text"
+                    android:singleLine="false"
+                    android:lines="3"
+                    android:id="@+id/notes_text"/>
             <!-- End section 4 -->
-            <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_line_separator"/>
 
             <Button
                     android:id="@+id/register_request_button"

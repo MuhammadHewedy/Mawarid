@@ -5,15 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.myapps.mawarid.R;
 import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
 import com.myapps.mawarid.api.AgentNatLookupRequest;
 import com.myapps.mawarid.api.CityRequest;
+import com.myapps.mawarid.api.HowKnowRequest;
 import com.myapps.mawarid.api.LookupRequest;
+import com.myapps.mawarid.api.RequestJobRequest;
+import com.myapps.mawarid.api.RequestNatRequest;
 import com.myapps.mawarid.api.SectorRequest;
-import com.myapps.mawarid.model.Lookup;
 import com.myapps.mawarid.util.FontsUtil;
 
 /**
@@ -24,6 +25,9 @@ public class IndividualsRequestActivity extends Activity {
     private Spinner mAgentNatSpinner;
     private Spinner mCitySpinner;
     private Spinner mSectorSpinner;
+    private Spinner mRequiredJobSpinner;
+    private Spinner mRequiredNatSpinner;
+    private Spinner mHowKnowSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +69,20 @@ public class IndividualsRequestActivity extends Activity {
 
         mSectorSpinner = (Spinner) findViewById(R.id.sector_spinner);
         spinnerAdapter = LookupSpinnerAdapter.newInstance(this);
-        fillSpinner(mSectorSpinner, spinnerAdapter, new SectorRequest(spinnerAdapter,
+        fillSpinner(mSectorSpinner, spinnerAdapter, new SectorRequest(spinnerAdapter, spinnerAdapter));
+
+        mRequiredJobSpinner = (Spinner) findViewById(R.id.req_job_spinner);
+        spinnerAdapter = LookupSpinnerAdapter.newInstance(this);
+        fillSpinner(mRequiredJobSpinner, spinnerAdapter, new RequestJobRequest(spinnerAdapter, spinnerAdapter));
+
+        mRequiredNatSpinner = (Spinner) findViewById(R.id.req_nat_spinner);
+        spinnerAdapter = LookupSpinnerAdapter.newInstance(this);
+        fillSpinner(mRequiredNatSpinner, spinnerAdapter, new RequestNatRequest(spinnerAdapter,
                 spinnerAdapter));
+
+        mHowKnowSpinner = (Spinner) findViewById(R.id.how_know_spinner);
+        spinnerAdapter = LookupSpinnerAdapter.newInstance(this);
+        fillSpinner(mHowKnowSpinner, spinnerAdapter, new HowKnowRequest(spinnerAdapter, spinnerAdapter));
     }
 
     private void fillSpinner(Spinner spinner, LookupSpinnerAdapter spinnerAdapter,
@@ -84,11 +100,6 @@ public class IndividualsRequestActivity extends Activity {
     }
 
     public void registerRequestClicked(View view) {
-
-        Lookup selectedItem = (Lookup) mAgentNatSpinner.getSelectedItem();
-
-        Toast.makeText(this, "todo: Send request to server: " + selectedItem.getValue(),
-                Toast.LENGTH_SHORT).show();
         finish();
     }
 }

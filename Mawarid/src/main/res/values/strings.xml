@@ -21,5 +21,7 @@
     <string name="work_text">جهة العمل</string>
     <string name="job_text">المهنة</string>
     <string name="send_request_text">تسجيل الطلب</string>
+    <string name="number_text">العدد</string>
+    <string name="notes_text">ملاحظات</string>
 
 </resources>
