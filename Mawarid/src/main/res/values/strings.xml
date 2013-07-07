@@ -30,4 +30,12 @@
         <item>أنثى</item>
     </string-array>
 
+    <string-array name="salary_array">
+        <item>قم بإختيار الراتب</item>
+        <item>05-10</item>
+        <item>10-15</item>
+        <item>15-20</item>
+        <item>20-أكثر</item>
+    </string-array>
+
 </resources>

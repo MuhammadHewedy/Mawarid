@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.myapps.mawarid.R;
 import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
@@ -30,6 +31,7 @@ public class IndividualsRequestActivity extends Activity {
     private Spinner mRequiredNatSpinner;
     private Spinner mHowKnowSpinner;
     private Spinner mGenderSpinner;
+    private Spinner mSalSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,11 +92,10 @@ public class IndividualsRequestActivity extends Activity {
         fillSpinner(mHowKnowSpinner, spinnerAdapter, new HowKnowRequest(spinnerAdapter, spinnerAdapter));
 
         mGenderSpinner = (Spinner) findViewById(R.id.gender_spinner);
-        ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this, R.array.gender_array,
-                android.R.layout.simple_spinner_item);
-        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mGenderSpinner.setAdapter(genderAdapter);
+        fillLocalSpinner(mGenderSpinner, R.array.gender_array);
 
+        mSalSpinner = (Spinner) findViewById(R.id.sal_spinner);
+        fillLocalSpinner(mSalSpinner, R.array.salary_array);
     }
 
     private void fillSpinner(Spinner spinner, LookupSpinnerAdapter spinnerAdapter,
@@ -105,6 +106,14 @@ public class IndividualsRequestActivity extends Activity {
         spinnerAdapter.query();
     }
 
+    // todo fix font on old devices -- need to override ArrayAdapter.getView and getDropDownView
+    private void fillLocalSpinner(Spinner spinner, int arrayId){
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, arrayId,
+                android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
+
     private void adjustTextViewFont(int[] textViewIds) {
         for (Integer textViewId : textViewIds) {
             FontsUtil.adjustFont((TextView) findViewById(textViewId));
@@ -112,6 +121,7 @@ public class IndividualsRequestActivity extends Activity {
     }
 
     public void registerRequestClicked(View view) {
+        Toast.makeText(this, "تم تسجيل طلبك بنجاح !", Toast.LENGTH_SHORT).show();
         finish();
     }
 }
