@@ -16,6 +16,8 @@ import com.myapps.mawarid.util.Util;
  */
 public class IndividualsRequestActivity extends Activity {
 
+    private final static int[] NON_REQUIRED_INDEXES = {4, 6, 10, 11, 13, 14};
+
     private Spinner mAgentNatSpinner;
     private Spinner mCitySpinner;
     private Spinner mSectorSpinner;
@@ -104,22 +106,36 @@ public class IndividualsRequestActivity extends Activity {
      */
     private void adjustEditText() {
 
-        final int[] nonRequiredIndexes = {4, 6, 10, 11, 13, 14};
-
         for (int i = 0; i < mAllEditTextRef.length; i++) {
             EditText editText = mAllEditTextRef[i];
             FontsUtil.adjustFont(editText);
 
-            if (!Util.in(nonRequiredIndexes, i)) {
-                TextValidator.validateEmptyField(editText, getResources().getString(R.string.cannot_be_empty));
+            if (!Util.in(NON_REQUIRED_INDEXES, i)) {
+                TextValidator.addEmptyFieldValidator(editText, getResources().getString(R.string.cannot_be_empty));
             }
         }
         FontsUtil.adjustFont(mRegisterRequestButton);
     }
 
     public void registerRequestClicked(View view) {
-        Toast.makeText(this, "تم تسجيل طلبك بنجاح !", Toast.LENGTH_SHORT).show();
-        finish();
+
+        mNotesEditText.setError("asdfsadfafd");
+
+        if (validateInputs()) {
+            Toast.makeText(this, "تم تسجيل طلبك بنجاح !", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+    }
+
+    private boolean validateInputs() {
+        for (int i = 0; i < mAllEditTextRef.length; i++) {
+            if (!Util.in(NON_REQUIRED_INDEXES, i)) {
+                if (!TextValidator.validate(mAllEditTextRef[i], getResources().getString(R.string.cannot_be_empty))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     class ViewFinder {

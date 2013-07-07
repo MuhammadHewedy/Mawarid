@@ -12,10 +12,25 @@ import android.widget.EditText;
 
 public class TextValidator {
 
-    public static void validateEmptyField(final EditText editText, final String errorMsg) {
+    // consider using this https://github.com/ragunathjawahar/android-saripaar
+
+    public static boolean validate(final EditText editText, final String errorMsg) {
+
+        if (editText == null)
+            return false;
+
+        if (editText.getText() == null || TextUtils.isEmpty(editText.getText().toString())) {
+            editText.setError(errorMsg);
+            return false;
+        } else {
+            editText.setError(null);
+            return true;
+        }
+    }
+
+    public static void addEmptyFieldValidator(final EditText editText, final String errorMsg) {
 
         if (editText != null) {
-
             editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
@@ -23,8 +38,9 @@ public class TextValidator {
                         if (TextUtils.isEmpty(editText.getText().toString())) {
                             editText.setError(errorMsg);
                         }
-                    } else
+                    } else {
                         editText.setError(null);
+                    }
                 }
             });
 
