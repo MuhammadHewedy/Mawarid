@@ -5,7 +5,6 @@ import android.content.Context;
 import com.myapps.mawarid.App;
 import com.myapps.mawarid.api.LookupRequest;
 import com.myapps.mawarid.model.Lookup;
-import com.myapps.mawarid.util.Logger;
 
 import java.util.List;
 
@@ -38,10 +37,9 @@ public class LookupSpinnerAdapter extends AbstractArrayAdapter<List<Lookup>, Loo
     @Override
     protected void loadNextPage() {
         super.loadNextPage();
-        if (mLookupRequest != null) {
-            mInFlightRequest = App.get().getApi().addToQueue(mLookupRequest);
-        } else {
-            Logger.e(null, null, "mLookupRequest is null");
+        if (mLookupRequest == null) {
+            throw new IllegalStateException("LookupRequest couldn't be null");
         }
+        mInFlightRequest = App.get().getApi().addToQueue(mLookupRequest);
     }
 }
