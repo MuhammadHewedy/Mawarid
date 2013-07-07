@@ -24,33 +24,33 @@ public final class R {
     }
     public static final class id {
         public static final int agent_nationality_spinner=0x7f08000b;
-        public static final int birth_date_text_view=0x7f08000a;
+        public static final int birth_date_edit_text=0x7f08000a;
         public static final int city_spinner=0x7f08000d;
         public static final int company_button=0x7f08001a;
-        public static final int district_text_view=0x7f08000e;
-        public static final int email_text_view=0x7f080008;
-        public static final int family_name_text_view=0x7f080004;
-        public static final int father_name_text_view=0x7f080002;
-        public static final int first_name_text_view=0x7f080001;
+        public static final int district_edit_text=0x7f08000e;
+        public static final int email_edit_text=0x7f080008;
+        public static final int family_name_edit_text=0x7f080004;
+        public static final int father_name_edit_text=0x7f080002;
+        public static final int first_name_edit_text=0x7f080001;
         public static final int followup_button=0x7f08001b;
-        public static final int g_father_text_view=0x7f080003;
+        public static final int g_father_edit_text=0x7f080003;
         public static final int gender_spinner=0x7f080009;
         public static final int how_know_spinner=0x7f080016;
-        public static final int id_text_view=0x7f08000c;
+        public static final int id_edit_text=0x7f08000c;
         public static final int individual_button=0x7f080019;
-        public static final int job_text_view=0x7f080011;
-        public static final int mobile_phone_text_view=0x7f080005;
-        public static final int notes_text=0x7f080017;
-        public static final int other_phone_text_view=0x7f080006;
-        public static final int permanent_phone_text_view=0x7f080007;
+        public static final int job_edit_text=0x7f080011;
+        public static final int mobile_phone_edit_text=0x7f080005;
+        public static final int notes_edit_text=0x7f080017;
+        public static final int other_phone_edit_text=0x7f080006;
+        public static final int permanent_phone_edit_text=0x7f080007;
         public static final int register_request_button=0x7f080018;
         public static final int req_job_spinner=0x7f080013;
         public static final int req_nat_spinner=0x7f080014;
-        public static final int req_number=0x7f080015;
+        public static final int req_number_edit_text=0x7f080015;
         public static final int sal_spinner=0x7f080012;
         public static final int sector_spinner=0x7f08000f;
         public static final int textView=0x7f080000;
-        public static final int work_text_view=0x7f080010;
+        public static final int work_edit_text=0x7f080010;
     }
     public static final class layout {
         public static final int activity_company_request=0x7f030000;
@@ -60,27 +60,28 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f060000;
         public static final int birth_date_text=0x7f060001;
-        public static final int district_text=0x7f060002;
-        public static final int email_text=0x7f060003;
-        public static final int family_name_text=0x7f060004;
-        public static final int father_name_text=0x7f060005;
-        public static final int first_name_text=0x7f060006;
-        public static final int g_father_text=0x7f060007;
-        public static final int id_text=0x7f060008;
-        public static final int job_text=0x7f060009;
-        public static final int mobile_phone_text=0x7f06000a;
-        public static final int notes_text=0x7f06000b;
-        public static final int number_text=0x7f06000c;
-        public static final int other_phone_text=0x7f06000d;
-        public static final int permanent_phone_text=0x7f06000e;
-        public static final int request_companies_text=0x7f06000f;
-        public static final int request_follow_up_text=0x7f060010;
-        public static final int request_individuals_text=0x7f060011;
-        public static final int send_request_text=0x7f060012;
-        public static final int service_base_url=0x7f060013;
-        public static final int title_company_activity_text=0x7f060014;
-        public static final int title_individual_activity_text=0x7f060015;
-        public static final int work_text=0x7f060016;
+        public static final int cannot_be_empty=0x7f060002;
+        public static final int district_text=0x7f060003;
+        public static final int email_text=0x7f060004;
+        public static final int family_name_text=0x7f060005;
+        public static final int father_name_text=0x7f060006;
+        public static final int first_name_text=0x7f060007;
+        public static final int g_father_text=0x7f060008;
+        public static final int id_text=0x7f060009;
+        public static final int job_text=0x7f06000a;
+        public static final int mobile_phone_text=0x7f06000b;
+        public static final int notes_text=0x7f06000c;
+        public static final int number_text=0x7f06000d;
+        public static final int other_phone_text=0x7f06000e;
+        public static final int permanent_phone_text=0x7f06000f;
+        public static final int request_companies_text=0x7f060010;
+        public static final int request_follow_up_text=0x7f060011;
+        public static final int request_individuals_text=0x7f060012;
+        public static final int send_request_text=0x7f060013;
+        public static final int service_base_url=0x7f060014;
+        public static final int title_company_activity_text=0x7f060015;
+        public static final int title_individual_activity_text=0x7f060016;
+        public static final int work_text=0x7f060017;
     }
     public static final class style {
         /** 

@@ -3,20 +3,27 @@ package com.myapps.mawarid.activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.myapps.mawarid.R;
 import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
-import com.myapps.mawarid.api.*;
+import com.myapps.mawarid.api.AgentNatLookupRequest;
+import com.myapps.mawarid.api.CityRequest;
+import com.myapps.mawarid.api.HowKnowRequest;
+import com.myapps.mawarid.api.LookupRequest;
+import com.myapps.mawarid.api.RequestJobRequest;
+import com.myapps.mawarid.api.RequestNatRequest;
+import com.myapps.mawarid.api.SectorRequest;
 import com.myapps.mawarid.util.FontsUtil;
-import com.myapps.mawarid.util.TextValidator;
-import com.myapps.mawarid.util.Util;
 
 /**
  * Created by mhewedy on 7/6/13.
  */
 public class IndividualsRequestActivity extends Activity {
-
-    private final static int[] NON_REQUIRED_INDEXES = {4, 6, 10, 11, 13, 14};
 
     private Spinner mAgentNatSpinner;
     private Spinner mCitySpinner;
@@ -105,37 +112,16 @@ public class IndividualsRequestActivity extends Activity {
      * set font and add text change listener
      */
     private void adjustEditText() {
-
         for (int i = 0; i < mAllEditTextRef.length; i++) {
             EditText editText = mAllEditTextRef[i];
             FontsUtil.adjustFont(editText);
-
-            if (!Util.in(NON_REQUIRED_INDEXES, i)) {
-                TextValidator.addEmptyFieldValidator(editText, getResources().getString(R.string.cannot_be_empty));
-            }
         }
         FontsUtil.adjustFont(mRegisterRequestButton);
     }
 
     public void registerRequestClicked(View view) {
-
-        mNotesEditText.setError("asdfsadfafd");
-
-        if (validateInputs()) {
             Toast.makeText(this, "تم تسجيل طلبك بنجاح !", Toast.LENGTH_SHORT).show();
             finish();
-        }
-    }
-
-    private boolean validateInputs() {
-        for (int i = 0; i < mAllEditTextRef.length; i++) {
-            if (!Util.in(NON_REQUIRED_INDEXES, i)) {
-                if (!TextValidator.validate(mAllEditTextRef[i], getResources().getString(R.string.cannot_be_empty))) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 
     class ViewFinder {
