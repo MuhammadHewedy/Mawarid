@@ -23,6 +23,7 @@
     <string name="send_request_text">تسجيل الطلب</string>
     <string name="number_text">العدد</string>
     <string name="notes_text">ملاحظات</string>
+    <string name="cannot_be_empty">هذا الحقل مطلوب</string>
 
     <string-array name="gender_array">
         <item>قم بإختيار النوع</item>

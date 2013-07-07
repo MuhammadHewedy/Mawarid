@@ -8,6 +8,8 @@ import com.myapps.mawarid.R;
 import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
 import com.myapps.mawarid.api.*;
 import com.myapps.mawarid.util.FontsUtil;
+import com.myapps.mawarid.util.TextValidator;
+import com.myapps.mawarid.util.Util;
 
 /**
  * Created by mhewedy on 7/6/13.
@@ -51,7 +53,7 @@ public class IndividualsRequestActivity extends Activity {
         mAllSpinnerRef = viewFinder.findSpinnersById();
         mRegisterRequestButton = (Button) findViewById(R.id.register_request_button);
 
-        adjustTextViewFont();
+        adjustEditText();
 
         setupSpinners();
     }
@@ -97,9 +99,20 @@ public class IndividualsRequestActivity extends Activity {
         spinner.setAdapter(adapter);
     }
 
-    private void adjustTextViewFont() {
-        for (EditText editText : mAllEditTextRef) {
+    /**
+     * set font and add text change listener
+     */
+    private void adjustEditText() {
+
+        final int[] nonRequiredIndexes = {4, 6, 10, 11, 13, 14};
+
+        for (int i = 0; i < mAllEditTextRef.length; i++) {
+            EditText editText = mAllEditTextRef[i];
             FontsUtil.adjustFont(editText);
+
+            if (!Util.in(nonRequiredIndexes, i)) {
+                TextValidator.validateEmptyField(editText, getResources().getString(R.string.cannot_be_empty));
+            }
         }
         FontsUtil.adjustFont(mRegisterRequestButton);
     }
