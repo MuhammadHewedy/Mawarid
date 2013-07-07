@@ -2,7 +2,6 @@ package com.myapps.mawarid.util;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.myapps.mawarid.App;
@@ -11,8 +10,6 @@ import com.myapps.mawarid.App;
  * Created by mhewedy on 7/6/13.
  */
 public class FontsUtil {
-
-    private static final String TAG = "FontsUtil";
 
     public static void adjustFont(TextView textView) {
         if (textView != null) {
@@ -24,7 +21,7 @@ public class FontsUtil {
                 textView.setHint(Farsi.Convert(String.valueOf(textView.getHint())));
             }
         } else {
-            Log.e(TAG, "TextView is null");
+            Logger.e(null, null, "TextView is null");
         }
     }
 
