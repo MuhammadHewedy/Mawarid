@@ -159,7 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/number_text"
-                    android:id="@+id/job_text_view"/>
+                    android:id="@+id/req_number"/>
 
             <ImageView
                     android:layout_width="match_parent"
@@ -179,7 +179,8 @@
                     android:hint="@string/notes_text"
                     android:singleLine="false"
                     android:lines="3"
-                    android:id="@+id/notes_text"/>
+                    android:id="@+id/notes_text"
+                    android:gravity="top"/>
             <!-- End section 4 -->
 
             <Button

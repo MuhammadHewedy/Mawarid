@@ -48,7 +48,10 @@ public class IndividualsRequestActivity extends Activity {
                 R.id.other_phone_text_view,
                 R.id.permanent_phone_text_view,
                 R.id.work_text_view,
-                R.id.register_request_button
+                R.id.register_request_button,
+                R.id.job_text_view,
+                R.id.req_number,
+                R.id.notes_text
         });
 
         setupSpinners();
