@@ -24,4 +24,10 @@
     <string name="number_text">العدد</string>
     <string name="notes_text">ملاحظات</string>
 
+    <string-array name="gender_array">
+        <item>قم بإختيار النوع</item>
+        <item>ذكر</item>
+        <item>أنثى</item>
+    </string-array>
+
 </resources>

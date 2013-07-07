@@ -3,6 +3,7 @@ package com.myapps.mawarid.activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ public class IndividualsRequestActivity extends Activity {
     private Spinner mRequiredJobSpinner;
     private Spinner mRequiredNatSpinner;
     private Spinner mHowKnowSpinner;
+    private Spinner mGenderSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,13 @@ public class IndividualsRequestActivity extends Activity {
         mHowKnowSpinner = (Spinner) findViewById(R.id.how_know_spinner);
         spinnerAdapter = LookupSpinnerAdapter.newInstance(this);
         fillSpinner(mHowKnowSpinner, spinnerAdapter, new HowKnowRequest(spinnerAdapter, spinnerAdapter));
+
+        mGenderSpinner = (Spinner) findViewById(R.id.gender_spinner);
+        ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this, R.array.gender_array,
+                android.R.layout.simple_spinner_item);
+        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mGenderSpinner.setAdapter(genderAdapter);
+
     }
 
     private void fillSpinner(Spinner spinner, LookupSpinnerAdapter spinnerAdapter,

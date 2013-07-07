@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="gender_array">
+        <item>قم بإختيار النوع</item>
+        <item>ذكر</item>
+        <item>أنثى</item>
+    </string-array>
+
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <string name="action_settings">Settings</string>
     <string name="app_name">موارد</string>
     <string name="birth_date_text">تاريخ الميلاد</string>
     <string name="district_text">الحي السكني</string>
@@ -12,6 +19,7 @@
     <string name="father_name_text">اسم الأب</string>
     <string name="first_name_text">الاسم الاول</string>
     <string name="g_father_text">اسم الجد</string>
+    <string name="hello_world">Hello world!</string>
     <string name="id_text">رقم الهوية</string>
     <string name="job_text">المهنة</string>
     <string name="mobile_phone_text">الهاتف الجوال</string>
@@ -38,6 +46,11 @@
 
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="InputFieldsStyle">
+        <item name="android:singleLine">true</item>
+        <item name="android:imeOptions">actionNext</item>
     </style>
 
 </resources>
