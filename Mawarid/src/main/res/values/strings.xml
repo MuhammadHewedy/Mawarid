@@ -23,7 +23,29 @@
     <string name="send_request_text">تسجيل الطلب</string>
     <string name="number_text">العدد</string>
     <string name="notes_text">ملاحظات</string>
-    <string name="cannot_be_empty">هذا الحقل مطلوب</string>
+
+
+    <string name="error_fname_text">ادخل الاسم الأول</string>
+    <string name="error_family_text">ادخل اسم العائلة</string>
+    <string name="error_mobile_text">ادخل الهاتف الجوال</string>
+    <string name="error_email_text">ادخل الإيميل</string>
+    <string name="error_bdate_text">ادخل تاريخ الميلاد</string>
+    <string name="error_id_text">ادخل رقم الهوية</string>
+    <string name="error_dist_text">ادخل ا لحي السكني</string>
+    <string name="error_work_text">ادخل جهة العمل</string>
+    <string name="error_job_text">ادخل المهنة</string>
+    <string name="error_invalid_email_text">البريد الإلكتروني غير صحيح</string>
+
+    <string name="error_city_text">قم بإختيار المدينة</string>
+    <string name="error_sector_text">قم بإختيار القطاع</string>
+    <string name="error_required_job_text">قم بإختيار المهنة</string>
+    <string name="error_required_nat_text">قم بإختيار الجنسية المطلوبه</string>
+    <string name="error_gender_text">قم بإختيار النوع</string>
+    <string name="error_sal_text">قم بإختيار الراتب</string>
+
+    <string name="regex_date">([0-9]{2})/([0-9]{2})/([0-9]{4})</string>
+    <string name="error_invalid_date_text">mm/dd/yyyy</string>
+
 
     <string-array name="gender_array">
         <item>قم بإختيار النوع</item>

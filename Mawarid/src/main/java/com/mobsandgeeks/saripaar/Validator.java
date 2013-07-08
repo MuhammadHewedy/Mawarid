@@ -27,6 +27,7 @@ import com.mobsandgeeks.saripaar.annotation.NumberRule;
 import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Regex;
 import com.mobsandgeeks.saripaar.annotation.Required;
+import com.mobsandgeeks.saripaar.annotation.SpinnerNotChosen;
 import com.mobsandgeeks.saripaar.annotation.TextRule;
 
 import java.lang.annotation.Annotation;
@@ -554,7 +555,8 @@ public class Validator {
                 annotationType.equals(Password.class) ||
                 annotationType.equals(Regex.class) ||
                 annotationType.equals(Required.class) ||
-                annotationType.equals(TextRule.class);
+                annotationType.equals(TextRule.class) ||
+                annotationType.equals(SpinnerNotChosen.class);
     }
 
     @SuppressWarnings("rawtypes") 
@@ -616,6 +618,8 @@ public class Validator {
             } else if (annotatedClass.equals(TextRule.class)) {
                 return ((TextRule) annotation).order();
 
+            }else if (annotatedClass.equals(SpinnerNotChosen.class)){
+                return ((SpinnerNotChosen) annotation).order();
             } else {
                 throw new IllegalArgumentException(String.format("%s is not a Saripaar annotation",
                         annotatedClass.getName()));

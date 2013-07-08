@@ -10,7 +10,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.Regex;
 import com.mobsandgeeks.saripaar.annotation.Required;
+import com.mobsandgeeks.saripaar.annotation.SpinnerNotChosen;
 import com.myapps.mawarid.R;
 import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
 import com.myapps.mawarid.api.AgentNatLookupRequest;
@@ -28,28 +31,45 @@ import com.myapps.mawarid.util.FontsUtil;
  */
 public class IndividualsRequestActivity extends Activity {
 
-    private Spinner mAgentNatSpinner;
-    private Spinner mCitySpinner;
-    private Spinner mSectorSpinner;
-    private Spinner mRequiredJobSpinner;
-    private Spinner mRequiredNatSpinner;
-    private Spinner mHowKnowSpinner;
+    @SpinnerNotChosen(order = 6, messageResId = R.string.error_gender_text)
     private Spinner mGenderSpinner;
+    @SpinnerNotChosen(order = 10, messageResId = R.string.error_city_text)
+    private Spinner mCitySpinner;
+    @SpinnerNotChosen(order = 12, messageResId = R.string.error_sector_text)
+    private Spinner mSectorSpinner;
+    @SpinnerNotChosen(order = 15, messageResId = R.string.error_sal_text)
     private Spinner mSalSpinner;
-    private EditText mbirthDateEditText;
-    private EditText mDistrictEditText;
-    private EditText mEmailEditText;
-    private EditText mFamilyNameEditText;
-    private EditText mFatherNameEditText;
-    @Required(order = 1, messageResId = R.string.cannot_be_empty)
+    @SpinnerNotChosen(order = 16, messageResId = R.string.error_required_job_text)
+    private Spinner mRequiredJobSpinner;
+    @SpinnerNotChosen(order = 17, messageResId = R.string.error_required_nat_text)
+    private Spinner mRequiredNatSpinner;
+    private Spinner mAgentNatSpinner;
+    private Spinner mHowKnowSpinner;
+    @Required(order = 1, messageResId = R.string.error_fname_text)
     private EditText mFirstNameEditText;
-    private EditText mGFatherEditText;
-    private EditText mIdEditText;
-    private EditText mJobEditText;
+    @Required(order = 2, messageResId = R.string.error_family_text)
+    private EditText mFamilyNameEditText;
+    @Required(order = 3, messageResId = R.string.error_mobile_text)
     private EditText mMobilePhoneEditText;
-    private EditText mOtherPhoneEditText;
-    private EditText mPermanentPhoneEditText;
+    @Required(order = 4, messageResId = R.string.error_email_text)
+    @Email(order = 5, messageResId = R.string.error_invalid_email_text)
+    private EditText mEmailEditText;
+    @Required(order = 7, messageResId = R.string.error_bdate_text)
+    @Regex(order = 8, patternResId = R.string.regex_date,
+            messageResId = R.string.error_invalid_date_text)
+    private EditText mbirthDateEditText;
+    @Required(order = 9, messageResId = R.string.error_id_text)
+    private EditText mIdEditText;
+    @Required(order = 11, messageResId = R.string.error_dist_text)
+    private EditText mDistrictEditText;
+    @Required(order = 13, messageResId = R.string.error_work_text)
     private EditText mWorkEditText;
+    @Required(order = 14, messageResId = R.string.error_job_text)
+    private EditText mJobEditText;
+    private EditText mOtherPhoneEditText;
+    private EditText mGFatherEditText;
+    private EditText mFatherNameEditText;
+    private EditText mPermanentPhoneEditText;
     private EditText mReqNumberEditText;
     private EditText mNotesEditText;
     private Button mRegisterRequestButton;
@@ -134,6 +154,13 @@ public class IndividualsRequestActivity extends Activity {
 
     private void registerIndividualRequest() {
         Toast.makeText(this, "Register on Server succeed!", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // todo show warning dialog
     }
 
     class ViewFinder {

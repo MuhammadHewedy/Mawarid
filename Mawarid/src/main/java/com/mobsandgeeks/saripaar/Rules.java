@@ -13,22 +13,14 @@
  */
 package com.mobsandgeeks.saripaar;
 
-import java.util.LinkedHashMap;
-import java.util.Set;
-
-import android.inputmethodservice.ExtractEditText;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
-import android.widget.CheckBox;
 import android.widget.Checkable;
-import android.widget.CheckedTextView;
-import android.widget.EditText;
-import android.widget.MultiAutoCompleteTextView;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.ToggleButton;
+
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 /**
  * A built-in class with a collection of common rules. {@link android.widget.TextView} references notable direct
@@ -549,6 +541,18 @@ public final class Rules {
             @Override
             public boolean isValid(Spinner spinner) {
                 return spinner.getSelectedItemPosition() == expectedPosition;
+            }
+        };
+    }
+
+    public static Rule<Spinner> spinnerNotChosen(final String failureMessage,
+                                          final int expectedPosition) {
+
+        return new Rule<Spinner>(failureMessage) {
+
+            @Override
+            public boolean isValid(Spinner spinner) {
+                return spinner.getSelectedItemPosition() > expectedPosition;
             }
         };
     }
