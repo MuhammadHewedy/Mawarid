@@ -25,10 +25,11 @@ public abstract class BaseValidationListener implements Validator.ValidationList
     public void onFailure(View failedView, Rule<?> failedRule) {
         String message = failedRule.getFailureMessage();
 
+        failedView.requestFocus();
         if (failedView instanceof EditText) {
-            failedView.requestFocus();
             ((EditText) failedView).setError(message);
-        } else {
+        }else{
+            failedView.performClick();
             Toast.makeText(App.get(), message, Toast.LENGTH_SHORT).show();
         }
     }

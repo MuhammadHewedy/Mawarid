@@ -153,7 +153,7 @@ public class IndividualsRequestActivity extends Activity {
     }
 
     private void registerIndividualRequest() {
-        Toast.makeText(this, "Register on Server succeed!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "تم التسجيل بنجاح!", Toast.LENGTH_SHORT).show();
         finish();
     }
 
