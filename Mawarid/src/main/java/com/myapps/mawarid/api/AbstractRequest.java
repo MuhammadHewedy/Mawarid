@@ -16,9 +16,9 @@ public abstract class AbstractRequest<T> extends Request<T> {
 
     private final Response.Listener<T> mListener;
 
-    public AbstractRequest(String urlParams, Response.Listener<T> listener,
+    public AbstractRequest(int method, String urlParams, Response.Listener<T> listener,
                            Response.ErrorListener errorListener) {
-        super(Method.GET, App.get().getString(R.string.service_base_url) + urlParams,
+        super(method, App.get().getString(R.string.service_base_url) + urlParams,
                 errorListener);
         this.mListener = listener;
     }

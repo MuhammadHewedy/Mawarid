@@ -7,22 +7,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.Regex;
 import com.mobsandgeeks.saripaar.annotation.Required;
 import com.mobsandgeeks.saripaar.annotation.SpinnerNotChosen;
 import com.myapps.mawarid.R;
+import com.myapps.mawarid.activities.helpers.IndividualRegistrationHandler;
 import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
-import com.myapps.mawarid.api.AgentNatLookupRequest;
-import com.myapps.mawarid.api.CityRequest;
-import com.myapps.mawarid.api.HowKnowRequest;
-import com.myapps.mawarid.api.LookupRequest;
-import com.myapps.mawarid.api.RequestJobRequest;
-import com.myapps.mawarid.api.RequestNatRequest;
-import com.myapps.mawarid.api.SectorRequest;
+import com.myapps.mawarid.api.*;
 import com.myapps.mawarid.util.BaseValidationListener;
 import com.myapps.mawarid.util.FontsUtil;
 
@@ -91,7 +84,7 @@ public class IndividualsRequestActivity extends Activity {
         mValidator.setValidationListener(new BaseValidationListener() {
             @Override
             public void onSuccess() {
-                registerIndividualRequest();
+                new IndividualRegistrationHandler(IndividualsRequestActivity.this).register();
             }
         });
 
@@ -152,9 +145,12 @@ public class IndividualsRequestActivity extends Activity {
         mValidator.validate();
     }
 
-    private void registerIndividualRequest() {
-        Toast.makeText(this, "تم التسجيل بنجاح!", Toast.LENGTH_SHORT).show();
-        finish();
+    public EditText[] getAllTextEditRef(){
+        return mAllEditTextRef;
+    }
+
+    public Spinner[] getAllSpinnerRef(){
+        return mAllSpinnerRef;
     }
 
     @Override
