@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.myapps.mawarid.App;
+import com.myapps.mawarid.R;
 import com.myapps.mawarid.activities.IndividualsRequestActivity;
 import com.myapps.mawarid.adapters.LookupSpinnerAdapter;
 import com.myapps.mawarid.model.Lookup;
@@ -62,12 +63,12 @@ public class IndividualRegistrationHandler implements Response.Listener, Respons
     @Override
     public void onErrorResponse(VolleyError error) {
         Logger.e(null, error, error.getMessage());
-        Toast.makeText(App.get(), "Error!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(App.get(), mIndividualsRequestActivity.getString(R.string.registration_error_text), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onResponse(Object response) {
-        Toast.makeText(App.get(), "تم التسجيل بنجاح!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(App.get(), mIndividualsRequestActivity.getString(R.string.registration_success_text), Toast.LENGTH_SHORT).show();
         mIndividualsRequestActivity.finish();
     }
 }

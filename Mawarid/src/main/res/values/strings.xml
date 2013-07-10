@@ -45,6 +45,8 @@
 
     <string name="regex_date">([0-9]{2})/([0-9]{2})/([0-9]{4})</string>
     <string name="error_invalid_date_text">mm/dd/yyyy</string>
+    <string name="registration_success_text">تم التسجيل بنجاح!</string>
+    <string name="registration_error_text">حدثت مشكله أثناء التسجل .. راجع الإداره</string>
 
 
     <string-array name="gender_array">
