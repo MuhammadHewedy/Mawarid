@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Email;
@@ -25,6 +24,9 @@ import com.myapps.mawarid.api.RequestNatRequest;
 import com.myapps.mawarid.api.SectorRequest;
 import com.myapps.mawarid.util.BaseValidationListener;
 import com.myapps.mawarid.util.FontsUtil;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by mhewedy on 7/6/13.
@@ -153,7 +155,8 @@ public class IndividualsRequestActivity extends Activity {
     }
 
     private void registerIndividualRequest() {
-        Toast.makeText(this, "تم التسجيل بنجاح!", Toast.LENGTH_SHORT).show();
+        Map<String, String> requestData = new HashMap<String, String>();
+        requestData.put("", "");
         finish();
     }
 

@@ -19,6 +19,7 @@
 
     <string name="app_name">موارد</string>
     <string name="birth_date_text">تاريخ الميلاد</string>
+    <string name="conn_lost_string">تحقق من إتصال الإنترنت</string>
     <string name="district_text">الحي السكني</string>
     <string name="email_text">البريد الإلكتروني</string>
     <string name="error_bdate_text">ادخل تاريخ الميلاد</string>

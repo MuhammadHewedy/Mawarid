@@ -7,7 +7,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
+import com.myapps.mawarid.R;
 import com.myapps.mawarid.util.Logger;
+import com.myapps.mawarid.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +62,7 @@ public abstract class AbstractArrayAdapter<RESPONSE_OBJ, ADAPTER_OBJ> extends Ar
     public void onErrorResponse(VolleyError error) {
         mInFlightRequest = null;
         Logger.e(null, error, error.toString());
+        Util.showToast(getContext().getString((R.string.conn_lost_string)));
     }
     //~ Response
 
