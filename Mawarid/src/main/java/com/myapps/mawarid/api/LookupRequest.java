@@ -18,7 +18,7 @@ public abstract class LookupRequest extends AbstractRequest<List<Lookup>> {
 
     public LookupRequest(String urlParams, Response.Listener<List<Lookup>> listener,
                          Response.ErrorListener errorListener) {
-        super(urlParams, listener, errorListener);
+        super(Method.GET, urlParams, listener, errorListener);
     }
 
     @Override

@@ -2,6 +2,9 @@ package com.myapps.mawarid.api;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+
+import java.util.Map;
 
 /**
  * Created by mohammad_abdullah on 6/26/13.
@@ -28,5 +31,10 @@ public class ServerApi {
 
     public Request<?> addToQueue(Request request){
         return mRequestQueue.add(request);
+    }
+
+    public void submitIndividualRequest(Map<String, String> params, Response.Listener<Void> listener,
+                                        Response.ErrorListener errorListener){
+        mRequestQueue.add(new SubmitIndividualRequest(params, listener, errorListener));
     }
 }
