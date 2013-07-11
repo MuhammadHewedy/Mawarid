@@ -43,7 +43,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/request_follow_up_text"
                     android:layout_gravity="center"
-                    android:id="@+id/followup_button"/>
+                    android:id="@+id/followup_button"
+                    android:onClick="openFollowUpActivity"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

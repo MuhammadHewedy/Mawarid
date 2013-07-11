@@ -30,7 +30,7 @@
         <activity
                 android:name=".activities.IndividualsRequestActivity"
                 android:parentActivityName="com.myapps.mawarid.activities.MainActivity"
-                android:label="@string/title_individual_activity_text">
+                android:label="@string/request_individuals_text">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.myapps.mawarid.activities.MainActivity"/>
@@ -39,11 +39,21 @@
         <activity
                 android:name=".activities.CompanyRequestActivity"
                 android:parentActivityName="com.myapps.mawarid.activities.MainActivity"
-                android:label="@string/title_company_activity_text">
+                android:label="@string/request_companies_text">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.myapps.mawarid.activities.MainActivity"/>
         </activity>
+
+        <activity
+                android:name=".activities.RequestFollowUpActivity"
+                android:parentActivityName="com.myapps.mawarid.activities.MainActivity"
+                android:label="@string/request_follow_up_text">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.myapps.mawarid.activities.MainActivity"/>
+        </activity>
+
     </application>
 
 </manifest>

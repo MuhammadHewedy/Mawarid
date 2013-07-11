@@ -31,4 +31,9 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void openFollowUpActivity(View view) {
+        Intent intent = new Intent(this, RequestFollowUpActivity.class);
+        startActivity(intent);
+    }
+
 }

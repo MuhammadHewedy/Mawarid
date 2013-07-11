@@ -5,8 +5,6 @@
     <string name="request_individuals_text">تقديم طلب أفراد</string>
     <string name="request_companies_text">تقديم طلب شركات</string>
     <string name="request_follow_up_text">متابعة الطلبات</string>
-    <string name="title_company_activity_text">تقديم طلب شركات</string>
-    <string name="title_individual_activity_text">تقديم طلب أفراد</string>
     <string name="first_name_text">الاسم الاول</string>
     <string name="father_name_text">اسم الأب</string>
     <string name="g_father_text">اسم الجد</string>
@@ -48,6 +46,9 @@
     <string name="conn_lost_string">تحقق من إتصال الإنترنت</string>
     <string name="registration_success_text">تم التسجيل بنجاح!</string>
     <string name="registration_error_text">حدثت مشكله أثناء التسجل .. راجع الإداره</string>
+    <string name="request_number_text">رقم الطلب</string>
+    <string name="search_text">بحث</string>
+    <string name="query_request_state_text">معرفة حالة الطلب</string>
 
 
     <string-array name="gender_array">
