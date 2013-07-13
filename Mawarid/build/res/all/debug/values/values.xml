@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- From: /home/mhewedy/AndroidStudioProjects/MawaridProject/Mawarid/src/main/res/values/strings.xml -->
     <string-array name="gender_array">
         <item>قم بإختيار النوع</item>
         <item>ذكر</item>
@@ -13,10 +14,10 @@
         <item>15-20</item>
         <item>20-أكثر</item>
     </string-array>
-
+    <!-- From: /home/mhewedy/AndroidStudioProjects/MawaridProject/Mawarid/src/main/res/values/dimens.xml -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-
+    <!-- From: /home/mhewedy/AndroidStudioProjects/MawaridProject/Mawarid/src/main/res/values/strings.xml -->
     <string name="app_name">موارد</string>
     <string name="birth_date_text">تاريخ الميلاد</string>
     <string name="conn_lost_string">تحقق من إتصال الإنترنت</string>
@@ -50,16 +51,21 @@
     <string name="number_text">العدد</string>
     <string name="other_phone_text">هاتف آخر</string>
     <string name="permanent_phone_text">هاتف ثابت</string>
+    <string name="query_request_state_text">معرفة حالة الطلب</string>
     <string name="regex_date">([0-9]{2})/([0-9]{2})/([0-9]{4})</string>
+    <string name="registration_error_text">حدثت مشكله أثناء التسجل .. راجع الإداره</string>
+    <string name="registration_success_text">تم التسجيل بنجاح!</string>
     <string name="request_companies_text">تقديم طلب شركات</string>
     <string name="request_follow_up_text">متابعة الطلبات</string>
     <string name="request_individuals_text">تقديم طلب أفراد</string>
+    <string name="request_number_text">رقم الطلب</string>
+    <string name="search_text">بحث</string>
     <string name="send_request_text">تسجيل الطلب</string>
+    <!-- From: /home/mhewedy/AndroidStudioProjects/MawaridProject/Mawarid/src/main/res/values/settings.xml -->
     <string name="service_base_url">http://www.almawarid.co/</string>
-    <string name="title_company_activity_text">تقديم طلب شركات</string>
-    <string name="title_individual_activity_text">تقديم طلب أفراد</string>
+    <!-- From: /home/mhewedy/AndroidStudioProjects/MawaridProject/Mawarid/src/main/res/values/strings.xml -->
     <string name="work_text">جهة العمل</string>
-
+    <!-- From: /home/mhewedy/AndroidStudioProjects/MawaridProject/Mawarid/src/main/res/values/styles.xml -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in

@@ -16,4 +16,4 @@
             android:layout_height="wrap_content"
             android:text="comp"
             android:id="@+id/textView"/>
-</LinearLayout>
+</LinearLayout><!-- From: /home/mhewedy/AndroidStudioProjects/MawaridProject/Mawarid/src/main/res/layout/activity_company_request.xml -->
